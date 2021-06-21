@@ -1,5 +1,4 @@
-@startuml CI/CD - 1 - Build
-
+@startuml build
 start
 :Push / Commit (Entwicklungsbranch);
 :Checkout;
@@ -27,6 +26,6 @@ if (Tests erfolgreich) then (ja)
 else (false)
     end
 endif
-stop
 
+stop
 @enduml
