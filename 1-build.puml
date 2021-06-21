@@ -1,0 +1,32 @@
+@startuml CI/CD - 1 - Build
+
+start
+:Push / Commit (Entwicklungsbranch);
+:Checkout;
+:Container-Build und Imageerstellung;
+split
+    :Ablage des Builds in der Registry;
+    :Vulnerability Scanning;
+    detach
+split again
+    :Cleanup;
+end split
+:Tests ausführen;
+fork
+    :Deployment Test (Zielzustand);
+fork again
+    :Unit-Tests;
+fork again
+    :Integration Tests;
+fork again
+    :UI-Tests;
+end fork
+:Cleanup;
+if (Tests erfolgreich) then (ja)
+    :Release;
+else (false)
+    end
+endif
+stop
+
+@enduml
