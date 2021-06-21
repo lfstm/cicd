@@ -1,1 +1,1 @@
-# CICD-Prozess PlantUML Demo
+# CICD-Prozess Demo
